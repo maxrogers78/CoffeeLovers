@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import logo from "../../public/images/logo_large.png";
+import logo from "../../static/logo_large.png";
 
 const Hero = () => {
   return (
