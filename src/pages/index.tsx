@@ -1,16 +1,25 @@
+import { GetStaticProps } from "next";
 import axios from "axios";
-import { useEffect } from "react";
 import Hero from "../sections/Hero";
+import { ICoffee } from "../interfaces/Coffee";
 
-const Home = () => {
-  useEffect(() => {
-    getData();
-  }, []);
+export const getStaticProps: GetStaticProps = async (context) => {
+  const resp = await axios.get(`https://api.sampleapis.com/coffee/hot`);
+  const coffees: ICoffee[] = await resp.data;
 
-  const getData = async () => {
-    const resp = await axios.get(`https://api.sampleapis.com/coffee/hot`);
-    console.log(resp.data);
+  return {
+    props: {
+      coffees,
+    },
   };
+};
+
+interface Props {
+  coffees: ICoffee[];
+}
+
+const Home = ({ coffees }: Props) => {
+  console.log(coffees);
 
   return (
     <main className="container">
