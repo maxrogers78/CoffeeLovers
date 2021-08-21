@@ -8,7 +8,17 @@ const Layout = ({ children }: any) => {
     return () => window.removeEventListener("scroll", handleScroll);
   });
 
-  const handleScroll = () => {};
+  const handleScroll = () => {
+    const navbar = document.getElementById("navbar");
+
+    if (navbar) {
+      if (window.scrollY !== 0) {
+        navbar.classList.add("bottom");
+      } else {
+        navbar.classList.remove("bottom");
+      }
+    }
+  };
 
   return (
     <>

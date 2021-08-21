@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect } from "react";
+import Hero from "../sections/Hero";
 
 const Home = () => {
   useEffect(() => {
@@ -12,9 +13,9 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <h1>Coffee Lovers</h1>
-    </div>
+    <main className="container">
+      <Hero />
+    </main>
   );
 };
 
